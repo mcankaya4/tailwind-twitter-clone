@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Chirp';
+  src: url('fonts/Chirp-Regular.80fda27a.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chirp';
+  src: url('fonts/Chirp-Medium.f8e2739a.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chirp';
+  src: url('fonts/Chirp-Bold.ebb56aba.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chirp';
+  src: url('fonts/Chirp-Heavy.f44ae4ea.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+
+@theme {
+
+  --color-svg: rgb(15, 20, 25);
+  --color-black1: rgb(15, 20, 25);
+  --color-gray1: rgb(83, 100, 113);
+  --color-blue1: rgb(29, 155, 240);
+  --color-nav-hover: rgba(15, 20, 25, 0.1);
+  --color-btn-hover: rgb(39, 44, 48);
+
+  --font-sans: "Chirp", sans-serif;
+}
+
+summary {
+  list-style: none;
+}
+
+.header-icon {
+  color: rgb(15, 20, 25);
+  fill: rgb(15, 20, 25);
+}
+
+.reload-news-icon {
+  position: relative;
+}
+
+.reload-news-icon::after {
+  position: absolute;
+  content: '';
+  border-radius: 50%;
+  width: 7px;
+  height: 7px;
+  background-color: rgb(29, 155, 240);
+  top: 8px;
+  left: 30px;
+  z-index: 1;
+}
+
+.header-link {
+  @apply flex items-center p-3 rounded-full hover:bg-nav-hover w-max text-xl duration-200;
+}
+
+
+/* Hamburger Menu */
+.hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  position: relative;
+}
+
+.hamburger-top, .hamburger-bottom, .hamburger-middle {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  top: 0;
+  left: 0;
+  background-color: white;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
