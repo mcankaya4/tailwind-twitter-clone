@@ -30,6 +30,7 @@
     );
     --color-black1: rgb(15, 20, 25);
     --color-gray1: rgb(83, 100, 113);
+    --color-outline-color: rgb(16, 16, 16);
     --color-nav-hover: rgba(15, 20, 25, 0.1);
     --color-btn-hover: rgb(39, 44, 48);
   }
@@ -176,12 +177,6 @@
   }
 }
 @layer utilities {
-  .relative {
-    position: relative;
-  }
-  .bottom-0 {
-    bottom: calc(var(--spacing) * 0);
-  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -209,9 +204,6 @@
   .my-3 {
     margin-block: calc(var(--spacing) * 3);
   }
-  .my-4 {
-    margin-block: calc(var(--spacing) * 4);
-  }
   .my-5 {
     margin-block: calc(var(--spacing) * 5);
   }
@@ -221,20 +213,8 @@
   .mt-1\.5 {
     margin-top: calc(var(--spacing) * 1.5);
   }
-  .mt-2 {
-    margin-top: calc(var(--spacing) * 2);
-  }
   .mr-4 {
     margin-right: calc(var(--spacing) * 4);
-  }
-  .mr-6 {
-    margin-right: calc(var(--spacing) * 6);
-  }
-  .mr-7 {
-    margin-right: calc(var(--spacing) * 7);
-  }
-  .mr-8 {
-    margin-right: calc(var(--spacing) * 8);
   }
   .mb-1 {
     margin-bottom: calc(var(--spacing) * 1);
@@ -242,11 +222,11 @@
   .ml-5 {
     margin-left: calc(var(--spacing) * 5);
   }
-  .block {
-    display: block;
-  }
   .flex {
     display: flex;
+  }
+  .hidden {
+    display: none;
   }
   .h-5 {
     height: calc(var(--spacing) * 5);
@@ -260,12 +240,6 @@
   .h-\[30px\] {
     height: 30px;
   }
-  .h-\[50px\] {
-    height: 50px;
-  }
-  .h-\[52px\] {
-    height: 52px;
-  }
   .h-\[54px\] {
     height: 54px;
   }
@@ -278,11 +252,17 @@
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
-  .w-\[275px\] {
-    width: 275px;
+  .w-\[54px\] {
+    width: 54px;
+  }
+  .w-\[88px\] {
+    width: 88px;
   }
   .w-full {
     width: 100%;
+  }
+  .w-max {
+    width: max-content;
   }
   .max-w-7xl {
     max-width: var(--container-7xl);
@@ -308,12 +288,6 @@
   .justify-center {
     justify-content: center;
   }
-  .gap-0\.5 {
-    gap: calc(var(--spacing) * 0.5);
-  }
-  .gap-1 {
-    gap: calc(var(--spacing) * 1);
-  }
   .gap-1\.5 {
     gap: calc(var(--spacing) * 1.5);
   }
@@ -333,11 +307,14 @@
   .bg-red-300 {
     background-color: var(--color-red-300);
   }
-  .p-3 {
-    padding: calc(var(--spacing) * 3);
-  }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
   }
   .text-lg {
     font-size: var(--text-lg);
@@ -388,6 +365,56 @@
       }
     }
   }
+  .focus-visible\:outline-outline-color {
+    &:focus-visible {
+      outline-color: var(--color-outline-color);
+    }
+  }
+  .xl\:mr-6 {
+    @media (width >= 80rem) {
+      margin-right: calc(var(--spacing) * 6);
+    }
+  }
+  .xl\:hidden {
+    @media (width >= 80rem) {
+      display: none;
+    }
+  }
+  .xl\:inline-block {
+    @media (width >= 80rem) {
+      display: inline-block;
+    }
+  }
+  .xl\:w-\[275px\] {
+    @media (width >= 80rem) {
+      width: 275px;
+    }
+  }
+  .xl\:w-full {
+    @media (width >= 80rem) {
+      width: 100%;
+    }
+  }
+  .xl\:items-start {
+    @media (width >= 80rem) {
+      align-items: flex-start;
+    }
+  }
+  .xl\:justify-between {
+    @media (width >= 80rem) {
+      justify-content: space-between;
+    }
+  }
+  .xl\:justify-start {
+    @media (width >= 80rem) {
+      justify-content: flex-start;
+    }
+  }
+  .xl\:p-3 {
+    @media (width >= 80rem) {
+      padding: calc(var(--spacing) * 3);
+    }
+  }
 }
 @font-face {
   font-family: 'Chirp';
@@ -423,6 +450,10 @@ summary {
 .reload-news-icon {
   position: relative;
 }
+.header-btn-icon {
+  color: white;
+  fill: white;
+}
 .reload-news-icon::after {
   position: absolute;
   content: '';
@@ -448,6 +479,9 @@ summary {
     @media (hover: hover) {
       background-color: var(--color-nav-hover);
     }
+  }
+  &:focus-visible {
+    outline-color: var(--color-outline-color);
   }
 }
 .hamburger {

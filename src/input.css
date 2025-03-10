@@ -35,6 +35,7 @@
   --color-black1: rgb(15, 20, 25);
   --color-gray1: rgb(83, 100, 113);
   --color-blue1: rgb(29, 155, 240);
+  --color-outline-color: rgb(16, 16, 16);
   --color-nav-hover: rgba(15, 20, 25, 0.1);
   --color-btn-hover: rgb(39, 44, 48);
 
@@ -54,6 +55,11 @@ summary {
   position: relative;
 }
 
+.header-btn-icon {
+  color: white;
+  fill: white;
+}
+
 .reload-news-icon::after {
   position: absolute;
   content: '';
@@ -67,7 +73,7 @@ summary {
 }
 
 .header-link {
-  @apply flex items-center p-3 rounded-full hover:bg-nav-hover w-max text-xl duration-200;
+  @apply flex items-center p-3 rounded-full hover:bg-nav-hover w-max text-xl duration-200 focus-visible:outline-outline-color;
 }
 
 
